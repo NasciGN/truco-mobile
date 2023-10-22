@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               ),
               child: const Center(
                 child: Text(
-                  'Criar uma Partida',
+                  'Entrar em uma partida',
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
           ),
           GestureDetector(
             onTap: () {
-              print('Entrar em uma partida');
+              Get.offNamed('/joinMatch');
             },
             child: Container(
               height: 40,

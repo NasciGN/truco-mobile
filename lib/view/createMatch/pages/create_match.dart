@@ -5,14 +5,14 @@ import 'package:get/get.dart';
 import 'package:truco_mobile/services/constants.dart';
 import 'package:truco_mobile/services/deck_api.dart';
 
-class CreateMatch extends StatefulWidget {
-  const CreateMatch({super.key});
+class CreateMatchPage extends StatefulWidget {
+  const CreateMatchPage({super.key});
 
   @override
-  State<CreateMatch> createState() => _CreateMatchState();
+  State<CreateMatchPage> createState() => _CreateMatchState();
 }
 
-class _CreateMatchState extends State<CreateMatch> {
+class _CreateMatchState extends State<CreateMatchPage> {
   final TextEditingController _nickController = TextEditingController();
   final controlDeck = DeckService();
 
