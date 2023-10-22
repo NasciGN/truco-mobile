@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:truco_mobile/services/constants.dart';
 import 'package:truco_mobile/services/deck_api.dart';
+import 'package:truco_mobile/services/game_controller.dart';
 
 class CreateMatchPage extends StatefulWidget {
   const CreateMatchPage({super.key});
@@ -15,6 +16,7 @@ class CreateMatchPage extends StatefulWidget {
 class _CreateMatchState extends State<CreateMatchPage> {
   final TextEditingController _nickController = TextEditingController();
   final controlDeck = DeckService();
+  final controlMatch = GameControl();
 
   @override
   void dispose() {
@@ -56,7 +58,12 @@ class _CreateMatchState extends State<CreateMatchPage> {
                   height: 100,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () async {
+                    String deckID = await controlDeck.getNewDeck();
+                    await controlMatch.createMatch(
+                        _nickController.text, deckID);
+                    Get.offNamed('/lobby');
+                  },
                   child: Container(
                     height: 40,
                     width: double.infinity,

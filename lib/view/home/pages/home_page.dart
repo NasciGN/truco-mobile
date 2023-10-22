@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               ),
               child: const Center(
                 child: Text(
-                  'Entrar em uma partida',
+                  'Criar uma partida',
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),

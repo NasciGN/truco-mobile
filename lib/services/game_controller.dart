@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
 class GameControl extends ChangeNotifier {
-  final FirebaseFirestore _Firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   String generateMatchCode() {
     final random = Random();
@@ -14,10 +13,18 @@ class GameControl extends ChangeNotifier {
         8, (_) => chars.codeUnitAt(random.nextInt(chars.length))));
   }
 
-  Future<void> createMatch(String player1) async {
+  Future<String> createMatch(String player1, String deckID) async {
     String matchID = generateMatchCode();
-    final matchData = {'matchID': matchID, 'player1': player1, 'player2': null};
-    await _Firestore.collection('matchs').doc(matchID).set(matchData);
+
+    final matchData = {
+      'matchID': matchID,
+      'player1': player1,
+      'player2': null,
+      'deckID': deckID
+    };
+    await _firestore.collection('matchs').doc(matchID).set(matchData);
+
+    return matchID;
   }
 
   Future<void> joinMatch(String player2, String matchID) async {
@@ -27,9 +34,7 @@ class GameControl extends ChangeNotifier {
 
     if (matchSnapshot.exists) {
       final matchData = matchSnapshot.data() as Map<String, dynamic>;
-
       if (matchData['player2'] == null) {
-        // A sala tem um slot vazio para o jogador 2
         await matchRef.update({'player2': player2});
       } else {
         print('Sala cheia');
@@ -38,4 +43,6 @@ class GameControl extends ChangeNotifier {
       print('Sala não existe');
     }
   }
+
+//  Stream<QuerySnapshot> getPlayers(matchID) {}
 }

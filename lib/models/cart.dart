@@ -1,9 +1,9 @@
-class Cart {
+class MyCard {
   final String id;
-  final String cartPng;
+  final String cardPng;
 
-  Cart({
+  MyCard({
     required this.id,
-    required this.cartPng,
+    required this.cardPng,
   });
 }
