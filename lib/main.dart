@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:truco_mobile/view/home/pages/homepage.page.dart';
+import 'package:get/get.dart';
+import 'package:truco_mobile/view/createMatch/pages/create_match.dart';
+import 'package:truco_mobile/view/home/pages/home_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:truco_mobile/services/firebase/firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: HomePage(),
-    );
-  }
+Future<void> main() async {
+  await Firebase.initializeApp(
+    name: 'pokedex-firebase',
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(GetMaterialApp(
+    initialRoute: '/home',
+    getPages: [
+      GetPage(name: '/home', page: () => const HomePage()),
+      GetPage(name: '/createMatch', page: () => const CreateMatch())
+    ],
+  ));
 }

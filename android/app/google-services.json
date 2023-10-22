@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "486480475076",
+    "firebase_url": "https://truco-mobile-default-rtdb.firebaseio.com",
+    "project_id": "truco-mobile",
+    "storage_bucket": "truco-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486480475076:android:58e396fc77e3f05d7bea91",
+        "android_client_info": {
+          "package_name": "br.com.nascign.truco_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQbCQoBFiWy9ojhwFVtrjdpYmXqqSD5WM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

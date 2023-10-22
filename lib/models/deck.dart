@@ -24,6 +24,49 @@ final cardsQ = ['QD', 'QS', 'QH', 'QC'];
 final cardsJ = ['JD', 'JS', 'JH', 'JC'];
 final cardsK = ['KD', 'KS', 'KH', 'KC'];
 
+final deck = [
+  'AD',
+  'AS',
+  'AH',
+  'AC',
+  '2D',
+  '2S',
+  '2H',
+  '2C',
+  '3D',
+  '3S',
+  '3H',
+  '3C',
+  '4D',
+  '4S',
+  '4H',
+  '4C',
+  '5D',
+  '5S',
+  '5H',
+  '5C',
+  '6D',
+  '6S',
+  '6H',
+  '6C',
+  '7D',
+  '7S',
+  '7H',
+  '7C',
+  'QD',
+  'QS',
+  'QH',
+  'QC',
+  'JD',
+  'JS',
+  'JH',
+  'JC',
+  'KD',
+  'KS',
+  'KH',
+  'KC'
+];
+
 void getDeck() {
   print(cards);
 }
